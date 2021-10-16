@@ -1,2 +1,12 @@
 install:
 	./gradlew clean install
+rub-dist:
+	./build/install/app/bin/app
+check-updates:
+	./gradlew dependencyUpdates
+lint:
+	./gradlew checkstyleMain
+build:
+	./gradlew clean build
+
+.PHONY: build
