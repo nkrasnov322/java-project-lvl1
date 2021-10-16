@@ -1,15 +1,17 @@
-name: HL
-on:
-	- push
-jobs:
-	build:
-		runs-on: ubuntu-latest
+name: Java CI
 
-	steps:
-		- uses: actions/checkout@v2
-		- name: Set up openJDK
-		- uses: actions/setup-java@v1
-		with
-			java-version: '16'
-		- name: Build with Gradle
-		- run: make build
+on:
+  - push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up openJDK
+        uses: actions/setup-java@v1
+        with:
+            java-version: '16'
+      - name: Build with Gradle
+        run: make build
