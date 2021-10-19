@@ -1,9 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Game;
-import hexlet.code.games.Greet;
+import hexlet.code.games.*;
 
 import java.util.Scanner;
 
@@ -11,9 +8,12 @@ public class Engine {
     private static final int NUMBER_OF_GAMES = 3;
 
     private static Game gameByNumber(int numberOfGame) {
-        final int numberOfGCDGame = 4;
-        final int numberOfCalcGame = 3;
-        final int numberOfGreetGame = 2;
+
+        final int numberOfPrimeGame     = 6;
+        final int numberOfProgressGame  = 5;
+        final int numberOfGCDGame       = 4;
+        final int numberOfCalcGame      = 3;
+        final int numberOfGreetGame     = 2;
 
 
         if (numberOfGame == numberOfGreetGame) {
@@ -22,7 +22,12 @@ public class Engine {
             return new Calc();
         } else if (numberOfGame == numberOfGCDGame) {
             return new GCD();
-        } else {
+        } else if (numberOfGame == numberOfProgressGame) {
+            return new Progression();
+        } else if (numberOfGame == numberOfPrimeGame) {
+            return new Prime();
+        }
+        else {
             return null;
         }
     }
