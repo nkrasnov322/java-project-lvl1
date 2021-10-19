@@ -11,9 +11,10 @@ public class Engine {
     private static final int NUMBER_OF_GAMES = 3;
 
     private static Game gameByNumber(int numberOfGame) {
+        final int numberOfGCDGame = 4;
         final int numberOfCalcGame = 3;
         final int numberOfGreetGame = 2;
-        final int numberOfGCDGame = 2;
+
 
         if (numberOfGame == numberOfGreetGame) {
             return new Greet();
