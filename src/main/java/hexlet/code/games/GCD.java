@@ -4,6 +4,8 @@ import java.util.Random;
 
 public final class GCD extends Game {
 
+    private final int maxQuestionsNumber = 100;
+
     private String question;
     private String answer;
 
@@ -26,8 +28,8 @@ public final class GCD extends Game {
     @Override
     public String getQuestion() {
         Random random = new Random();
-        int questionNumber1 = random.nextInt(99) + 1;
-        int questionNumber2 = random.nextInt(99) + 1;
+        int questionNumber1 = random.nextInt(maxQuestionsNumber);
+        int questionNumber2 = random.nextInt(maxQuestionsNumber);
         answer = String.valueOf(findGCD(questionNumber1, questionNumber2));
         question = questionNumber1 + " " + questionNumber2;
         return question;

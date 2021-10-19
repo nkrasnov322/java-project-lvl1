@@ -18,9 +18,9 @@ public final class Calc extends Game {
     @Override
     public String getQuestion() {
         Random random = new Random();
-        int questionNumber1 = random.nextInt(100);
-        int questionNumber2 = random.nextInt(100);
-        int numberOfOperation = random.nextInt(3);
+        int questionNumber1 = random.nextInt(maxQuestionsNumber);
+        int questionNumber2 = random.nextInt(maxQuestionsNumber);
+        int numberOfOperation = random.nextInt(numberOfOperations);
         String operation = "";
         if (numberOfOperation == 0) {
             operation = "+";

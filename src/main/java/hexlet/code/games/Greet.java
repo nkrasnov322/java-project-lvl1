@@ -4,6 +4,8 @@ import java.util.Random;
 
 public final class Greet extends Game {
 
+    private final int maxQuestionsNumber = 100;
+
     private String question;
     private String answer;
 
@@ -15,7 +17,7 @@ public final class Greet extends Game {
     @Override
     public String getQuestion() {
         Random random = new Random();
-        int questionNumber = random.nextInt(100);
+        int questionNumber = random.nextInt(maxQuestionsNumber);
         answer = questionNumber % 2 == 0 ? "yes" : "no";
         question = String.valueOf(questionNumber);
         return question;
