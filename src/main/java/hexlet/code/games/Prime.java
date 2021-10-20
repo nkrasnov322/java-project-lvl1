@@ -20,7 +20,7 @@ public final class Prime extends Game {
         int questionNumber = random.nextInt(maxQuestionsNumber);
         answer = "yes";
         for (int i = 2; i < questionNumber; i++) {
-            if ( questionNumber % i == 0) {
+            if (questionNumber % i == 0) {
                 answer = "no";
                 break;
             }

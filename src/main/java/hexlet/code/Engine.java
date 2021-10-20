@@ -1,6 +1,11 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Calc;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Game;
+import hexlet.code.games.Greet;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
@@ -26,8 +31,7 @@ public class Engine {
             return new Progression();
         } else if (numberOfGame == numberOfPrimeGame) {
             return new Prime();
-        }
-        else {
+        } else {
             return null;
         }
     }

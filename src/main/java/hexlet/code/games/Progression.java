@@ -31,8 +31,7 @@ public final class Progression extends Game {
             if (i == hiddenElement) {
                 answer = String.valueOf(lastElement);
                 question += " ..";
-            }
-            else {
+            } else {
                 question += " " + lastElement;
             }
         }
