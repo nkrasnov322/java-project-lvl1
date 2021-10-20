@@ -22,10 +22,9 @@ repositories {
     mavenCentral()
 }
 
-//compileJava {
-//    options.release = 16
-//}
-
+compileJava {
+    options.release = 16
+}
 
 group = 'hexlet.code'
 version = '1.0-SNAPSHOT'
