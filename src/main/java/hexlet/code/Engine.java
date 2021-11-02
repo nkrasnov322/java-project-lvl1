@@ -20,7 +20,6 @@ public class Engine {
         final int numberOfCalcGame      = 3;
         final int numberOfGreetGame     = 2;
 
-
         if (numberOfGame == numberOfGreetGame) {
             return new Greet();
         } else if (numberOfGame == numberOfCalcGame) {
