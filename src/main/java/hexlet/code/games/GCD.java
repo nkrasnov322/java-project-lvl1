@@ -1,20 +1,27 @@
 package hexlet.code.games;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
-public final class GCD extends Game {
+public class GCD {
 
-    private final int maxQuestionsNumber = 100;
+    private static final int MAX_QUESTIONS_NUMBER = 100;
 
-    private String question;
-    private String answer;
+    public static List<Game> getListOfGame(int number) {
+        printConditionOfGame();
+        List<Game> list = new ArrayList<>();
+        for (int i = 0; i < number; i++) {
+            list.add(getQuestion());
+        }
+        return list;
+    }
 
-    @Override
-    public void startGame() {
+    private static void printConditionOfGame() {
         System.out.println("Find the greatest common divisor of given numbers.");
     }
 
-    private int findGCD(int num1, int num2) {
+    private static int findGCD(int num1, int num2) {
         int minNum = Math.min(num1, num2);
         int gcd = 1;
         for (int i = 2; i <= minNum; i++) {
@@ -25,23 +32,13 @@ public final class GCD extends Game {
         return gcd;
     }
 
-    @Override
-    public String getQuestion() {
+    private static Game getQuestion() {
         Random random = new Random();
-        int questionNumber1 = random.nextInt(maxQuestionsNumber);
-        int questionNumber2 = random.nextInt(maxQuestionsNumber);
-        answer = String.valueOf(findGCD(questionNumber1, questionNumber2));
-        question = questionNumber1 + " " + questionNumber2;
-        return question;
+        int questionNumber1 = random.nextInt(MAX_QUESTIONS_NUMBER);
+        int questionNumber2 = random.nextInt(MAX_QUESTIONS_NUMBER);
+        String answer = String.valueOf(findGCD(questionNumber1, questionNumber2));
+        String question = questionNumber1 + " " + questionNumber2;
+        return new Game(question, answer);
     }
 
-    @Override
-    public String getAnswer() {
-        return answer;
-    }
-
-    @Override
-    public boolean checkUserAnswer(String userAnswer) {
-        return answer.equals(userAnswer);
-    }
 }

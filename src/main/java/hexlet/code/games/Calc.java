@@ -1,26 +1,34 @@
 package hexlet.code.games;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
-public final class Calc extends Game {
+public final class Calc {
 
-    private final int maxQuestionsNumber = 100;
-    private final byte numberOfOperations = 3;
+    private static final int MAX_QUESTIONS_NUMBER = 100;
+    private static final byte NUMBERS_OF_OPERATIONS = 3;
 
-    private String question;
-    private String answer;
+    public static List<Game> getListOfGame(int number) {
+        printConditionOfGame();
+        List<Game> list = new ArrayList<>();
+        for (int i = 0; i < number; i++) {
+            list.add(getQuestion());
+        }
+        return list;
+    }
 
-    @Override
-    public void startGame() {
+    private static void printConditionOfGame() {
         System.out.println("What is the result of the expression?");
     }
 
-    @Override
-    public String getQuestion() {
+    private static Game getQuestion() {
         Random random = new Random();
-        int questionNumber1 = random.nextInt(maxQuestionsNumber);
-        int questionNumber2 = random.nextInt(maxQuestionsNumber);
-        int numberOfOperation = random.nextInt(numberOfOperations);
+        String answer = "";
+        String question = "";
+        int questionNumber1 = random.nextInt(MAX_QUESTIONS_NUMBER);
+        int questionNumber2 = random.nextInt(MAX_QUESTIONS_NUMBER);
+        int numberOfOperation = random.nextInt(NUMBERS_OF_OPERATIONS);
         String operation = "";
         if (numberOfOperation == 0) {
             operation = "+";
@@ -33,16 +41,7 @@ public final class Calc extends Game {
             answer = String.valueOf(questionNumber1 * questionNumber2);
         }
         question = String.valueOf(questionNumber1) + " " + operation + " " + String.valueOf(questionNumber2);
-        return question;
+        return new Game(question, answer);
     }
 
-    @Override
-    public String getAnswer() {
-        return answer;
-    }
-
-    @Override
-    public boolean checkUserAnswer(String userAnswer) {
-        return answer.equals(userAnswer);
-    }
 }

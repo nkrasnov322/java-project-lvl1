@@ -1,41 +1,38 @@
 package hexlet.code.games;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
-public final class Prime extends Game {
+public final class Prime {
 
-    private final int maxQuestionsNumber = 100;
+    private static final int MAX_QUESTIONS_NUMBER = 100;
 
-    private String question;
-    private String answer;
+    public static List<Game> getListOfGame(int number) {
+        printConditionOfGame();
+        List<Game> list = new ArrayList<>();
+        for (int i = 0; i < number; i++) {
+            list.add(getQuestion());
+        }
+        return list;
+    }
 
-    @Override
-    public void startGame() {
+    private static void printConditionOfGame() {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     }
 
-    @Override
-    public String getQuestion() {
+    private static Game getQuestion() {
         Random random = new Random();
-        int questionNumber = random.nextInt(maxQuestionsNumber);
-        answer = "yes";
+        int questionNumber = random.nextInt(MAX_QUESTIONS_NUMBER);
+        String answer = "yes";
         for (int i = 2; i < questionNumber; i++) {
             if (questionNumber % i == 0) {
                 answer = "no";
                 break;
             }
         }
-        question = String.valueOf(questionNumber);
-        return question;
+        String question = String.valueOf(questionNumber);
+        return new Game(question, answer);
     }
 
-    @Override
-    public String getAnswer() {
-        return answer;
-    }
-
-    @Override
-    public boolean checkUserAnswer(String userAnswer) {
-        return answer.equals(userAnswer);
-    }
 }

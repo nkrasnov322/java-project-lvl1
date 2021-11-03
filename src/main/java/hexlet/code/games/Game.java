@@ -1,9 +1,19 @@
 package hexlet.code.games;
 
-public abstract class Game {
-    public abstract void startGame();
-    public abstract String getQuestion();
-    public abstract String getAnswer();
-    public abstract boolean checkUserAnswer(String userAnswer);
+public class Game {
+    private String question;
+    private String answer;
 
+    public Game(String pQuestion, String pAnswer) {
+        this.question = pQuestion;
+        this.answer = pAnswer;
+    }
+
+    public final String getQuestion() {
+        return question;
+    }
+
+    public final String getAnswer() {
+        return answer;
+    }
 }

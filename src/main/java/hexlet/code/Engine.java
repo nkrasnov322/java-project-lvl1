@@ -7,12 +7,14 @@ import hexlet.code.games.Greet;
 import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Engine {
     private static final int NUMBER_OF_GAMES = 3;
 
-    private static Game gameByNumber(int numberOfGame) {
+    private static List<Game> gameByNumber(int numberOfGame) {
 
         final int numberOfPrimeGame     = 6;
         final int numberOfProgressGame  = 5;
@@ -21,17 +23,17 @@ public class Engine {
         final int numberOfGreetGame     = 2;
 
         if (numberOfGame == numberOfGreetGame) {
-            return new Greet();
+            return Greet.getListOfGame(NUMBER_OF_GAMES);
         } else if (numberOfGame == numberOfCalcGame) {
-            return new Calc();
+            return Calc.getListOfGame(NUMBER_OF_GAMES);
         } else if (numberOfGame == numberOfGCDGame) {
-            return new GCD();
+            return GCD.getListOfGame(NUMBER_OF_GAMES);
         } else if (numberOfGame == numberOfProgressGame) {
-            return new Progression();
+            return Progression.getListOfGame(NUMBER_OF_GAMES);
         } else if (numberOfGame == numberOfPrimeGame) {
-            return new Prime();
+            return Prime.getListOfGame(NUMBER_OF_GAMES);
         } else {
-            return null;
+            return new ArrayList<Game>();
         }
     }
 
@@ -40,13 +42,13 @@ public class Engine {
         String userName = Cli.logIn();
         Scanner sc = new Scanner(System.in);
 
-        Game game = gameByNumber(numberOfGame);
-        game.startGame();
-        for (int i = 0; i < NUMBER_OF_GAMES; i++) {
+        List<Game> games = gameByNumber(numberOfGame);
+
+        for (Game game: games) {
             System.out.println("Question: " + game.getQuestion());
             System.out.print("Your answer: ");
             String answer = sc.next();
-            boolean isCorrectAnswer = game.checkUserAnswer(answer);
+            boolean isCorrectAnswer = answer.equals(game.getAnswer());
             if (isCorrectAnswer) {
                 System.out.println("Correct!");
             } else {
