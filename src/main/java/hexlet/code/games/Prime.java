@@ -12,7 +12,7 @@ public final class Prime {
 
     public static Game getQuestion() {
         Random random = new Random();
-        int questionNumber = random.nextInt(MAX_QUESTIONS_NUMBER);
+        int questionNumber = random.nextInt(MAX_QUESTIONS_NUMBER) + 1;
         String answer = "yes";
         for (int i = 2; i < questionNumber; i++) {
             if (questionNumber % i == 0) {

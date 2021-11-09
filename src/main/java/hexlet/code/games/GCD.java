@@ -22,8 +22,8 @@ public class GCD {
 
     public static Game getQuestion() {
         Random random = new Random();
-        int questionNumber1 = random.nextInt(MAX_QUESTIONS_NUMBER);
-        int questionNumber2 = random.nextInt(MAX_QUESTIONS_NUMBER);
+        int questionNumber1 = random.nextInt(MAX_QUESTIONS_NUMBER) + 1;
+        int questionNumber2 = random.nextInt(MAX_QUESTIONS_NUMBER) + 1;
         String answer = String.valueOf(findGCD(questionNumber1, questionNumber2));
         String question = questionNumber1 + " " + questionNumber2;
         return new Game(question, answer);

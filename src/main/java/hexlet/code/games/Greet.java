@@ -12,7 +12,7 @@ public final class Greet {
 
     public static Game getQuestion() {
         Random random = new Random();
-        int questionNumber = random.nextInt(MAX_QUESTIONS_NUMBER);
+        int questionNumber = random.nextInt(MAX_QUESTIONS_NUMBER) + 1;
         String answer = questionNumber % 2 == 0 ? "yes" : "no";
         String question = String.valueOf(questionNumber);
         return new Game(question, answer);
