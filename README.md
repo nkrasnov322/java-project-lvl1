@@ -1,8 +1,7 @@
 ### Hexlet tests and linter status:
 ![Java CI](https://github.com/nkrasnov322/java-project-lvl1/workflows/Java%20CI/badge.svg)
 [![Actions Status](https://github.com/nkrasnov322/java-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/nkrasnov322/java-project-lvl1/actions)
-<a href="https://codeclimate.com/github/codeclimate/codeclimate/maintainability"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" /></a>
-
+<a href="https://codeclimate.com/github/nkrasnov322/java-project-lvl1/maintainability"><img src="https://api.codeclimate.com/v1/badges/86b67f577c7c8e5e6f78/maintainability" /></a>
 
 ### Пример игры Even
 [![asciicast](https://asciinema.org/a/sz9hCZRQYd8tOw6XSrOKyLl87.svg)](https://asciinema.org/a/sz9hCZRQYd8tOw6XSrOKyLl87)

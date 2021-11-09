@@ -12,37 +12,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Engine {
-    private static final int NUMBER_OF_GAMES = 3;
 
-    private static List<Game> gameByNumber(int numberOfGame) {
-
-        final int numberOfPrimeGame     = 6;
-        final int numberOfProgressGame  = 5;
-        final int numberOfGCDGame       = 4;
-        final int numberOfCalcGame      = 3;
-        final int numberOfGreetGame     = 2;
-
-        if (numberOfGame == numberOfGreetGame) {
-            return Greet.getListOfGame(NUMBER_OF_GAMES);
-        } else if (numberOfGame == numberOfCalcGame) {
-            return Calc.getListOfGame(NUMBER_OF_GAMES);
-        } else if (numberOfGame == numberOfGCDGame) {
-            return GCD.getListOfGame(NUMBER_OF_GAMES);
-        } else if (numberOfGame == numberOfProgressGame) {
-            return Progression.getListOfGame(NUMBER_OF_GAMES);
-        } else if (numberOfGame == numberOfPrimeGame) {
-            return Prime.getListOfGame(NUMBER_OF_GAMES);
-        } else {
-            return new ArrayList<Game>();
-        }
-    }
-
-    public static void startGame(int numberOfGame) {
+    public static void startGame(List<Game> games) {
 
         String userName = Cli.logIn();
         Scanner sc = new Scanner(System.in);
-
-        List<Game> games = gameByNumber(numberOfGame);
 
         for (Game game: games) {
             System.out.println("Question: " + game.getQuestion());
