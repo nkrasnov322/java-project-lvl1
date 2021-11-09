@@ -1,13 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.GCD;
 import hexlet.code.games.Game;
-import hexlet.code.games.Greet;
-import hexlet.code.games.Prime;
-import hexlet.code.games.Progression;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 

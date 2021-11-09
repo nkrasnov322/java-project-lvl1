@@ -1,7 +1,5 @@
 package hexlet.code.games;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public final class Calc {
@@ -9,20 +7,11 @@ public final class Calc {
     private static final int MAX_QUESTIONS_NUMBER = 100;
     private static final byte NUMBERS_OF_OPERATIONS = 3;
 
-    public static List<Game> getListOfGame(int number) {
-        printConditionOfGame();
-        List<Game> list = new ArrayList<>();
-        for (int i = 0; i < number; i++) {
-            list.add(getQuestion());
-        }
-        return list;
-    }
-
-    private static void printConditionOfGame() {
+    public static void printConditionOfGame() {
         System.out.println("What is the result of the expression?");
     }
 
-    private static Game getQuestion() {
+    public static Game getQuestion() {
         Random random = new Random();
         String answer = "";
         String question = "";

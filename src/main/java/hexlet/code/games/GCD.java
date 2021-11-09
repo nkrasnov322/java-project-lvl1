@@ -1,23 +1,11 @@
 package hexlet.code.games;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class GCD {
 
     private static final int MAX_QUESTIONS_NUMBER = 100;
-
-    public static List<Game> getListOfGame(int number) {
-        printConditionOfGame();
-        List<Game> list = new ArrayList<>();
-        for (int i = 0; i < number; i++) {
-            list.add(getQuestion());
-        }
-        return list;
-    }
-
-    private static void printConditionOfGame() {
+    public static void printConditionOfGame() {
         System.out.println("Find the greatest common divisor of given numbers.");
     }
 
@@ -32,7 +20,7 @@ public class GCD {
         return gcd;
     }
 
-    private static Game getQuestion() {
+    public static Game getQuestion() {
         Random random = new Random();
         int questionNumber1 = random.nextInt(MAX_QUESTIONS_NUMBER);
         int questionNumber2 = random.nextInt(MAX_QUESTIONS_NUMBER);
