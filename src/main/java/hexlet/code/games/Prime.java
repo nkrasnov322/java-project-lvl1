@@ -1,16 +1,30 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public final class Prime {
 
     private static final int MAX_QUESTIONS_NUMBER = 100;
+    private static final String CONDITION_OF_GAME = "Answer 'yes' if number even otherwise answer 'no'.";
 
-    public static void printConditionOfGame() {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+    private static String getConditionOfGame() {
+        return CONDITION_OF_GAME;
     }
 
-    public static Game getQuestion() {
+    public static void startGame(final int numbersOfGame) {
+        List<Game> games = new ArrayList<>();
+        String condition = getConditionOfGame();
+        for (int i = 0; i < numbersOfGame; i++) {
+            games.add(getQuestion());
+        }
+        Engine.startGame(games, condition);
+    }
+
+    private static Game getQuestion() {
         Random random = new Random();
         int questionNumber = random.nextInt(MAX_QUESTIONS_NUMBER) + 1;
         String answer = "yes";

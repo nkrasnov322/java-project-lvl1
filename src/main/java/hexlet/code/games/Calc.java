@@ -1,17 +1,31 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public final class Calc {
 
     private static final int MAX_QUESTIONS_NUMBER = 100;
     private static final byte NUMBERS_OF_OPERATIONS = 3;
+    private static final String CONDITION_OF_GAME = "What is the result of the expression?";
 
-    public static void printConditionOfGame() {
-        System.out.println("What is the result of the expression?");
+    private static String getConditionOfGame() {
+        return CONDITION_OF_GAME;
     }
 
-    public static Game getQuestion() {
+    public static void startGame(final int numbersOfGame) {
+        List<Game> games = new ArrayList<>();
+        String condition = getConditionOfGame();
+        for (int i = 0; i < numbersOfGame; i++) {
+            games.add(getQuestion());
+        }
+        Engine.startGame(games, condition);
+    }
+
+    private static Game getQuestion() {
         Random random = new Random();
         String answer = "";
         String question = "";

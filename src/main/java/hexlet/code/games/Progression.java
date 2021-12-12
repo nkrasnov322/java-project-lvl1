@@ -1,16 +1,30 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public final class Progression {
 
     private static final int NUMBER_OF_ITEMS = 10;
+    private static final String CONDITION_OF_GAME = "What number is missing in the progression?";
 
-    public static void printConditionOfGame() {
-        System.out.println("What number is missing in the progression?");
+    private static String getConditionOfGame() {
+        return CONDITION_OF_GAME;
     }
 
-    public static Game getQuestion() {
+    public static void startGame(final int numbersOfGame) {
+        List<Game> games = new ArrayList<>();
+        String condition = getConditionOfGame();
+        for (int i = 0; i < numbersOfGame; i++) {
+            games.add(getQuestion());
+        }
+        Engine.startGame(games, condition);
+    }
+
+    private static Game getQuestion() {
         Random random = new Random();
         int firstElement = random.nextInt(NUMBER_OF_ITEMS);
         int step = random.nextInt(NUMBER_OF_ITEMS);

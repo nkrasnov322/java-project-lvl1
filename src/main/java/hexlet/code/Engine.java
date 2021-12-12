@@ -7,9 +7,10 @@ import java.util.Scanner;
 
 public class Engine {
 
-    public static void startGame(List<Game> games) {
+    public static void startGame(List<Game> games, String condition) {
 
         String userName = Cli.logIn();
+        System.out.println(condition);
         Scanner sc = new Scanner(System.in);
 
         for (Game game: games) {
