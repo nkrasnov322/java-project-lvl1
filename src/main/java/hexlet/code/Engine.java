@@ -6,10 +6,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Engine {
+    public static final int NUMBER_OF_GAMES = 3;
+    public static void startGame(List<Game> games, String condition, String userName) {
 
-    public static void startGame(List<Game> games, String condition) {
-
-        String userName = Cli.logIn();
         System.out.println(condition);
         Scanner sc = new Scanner(System.in);
 

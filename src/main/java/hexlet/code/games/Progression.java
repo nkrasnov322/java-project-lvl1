@@ -1,10 +1,10 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public final class Progression {
 
@@ -15,20 +15,19 @@ public final class Progression {
         return CONDITION_OF_GAME;
     }
 
-    public static void startGame(final int numbersOfGame) {
+    public static void startGame(String username) {
         List<Game> games = new ArrayList<>();
         String condition = getConditionOfGame();
-        for (int i = 0; i < numbersOfGame; i++) {
+        for (int i = 0; i < Engine.NUMBER_OF_GAMES; i++) {
             games.add(getQuestion());
         }
-        Engine.startGame(games, condition);
+        Engine.startGame(games, condition, username);
     }
 
     private static Game getQuestion() {
-        Random random = new Random();
-        int firstElement = random.nextInt(NUMBER_OF_ITEMS);
-        int step = random.nextInt(NUMBER_OF_ITEMS);
-        int hiddenElement = random.nextInt(NUMBER_OF_ITEMS) + 1;
+        int firstElement = Utils.generateRandom(0, NUMBER_OF_ITEMS);
+        int step = Utils.generateRandom(0, NUMBER_OF_ITEMS);
+        int hiddenElement = Utils.generateRandom(1, NUMBER_OF_ITEMS);
         int lastElement = firstElement;
         String question = String.valueOf(firstElement);
         String answer = "";

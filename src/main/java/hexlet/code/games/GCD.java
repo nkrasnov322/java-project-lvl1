@@ -1,27 +1,26 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class GCD {
 
-    private static final int MAX_QUESTIONS_NUMBER = 100;
     private static final String CONDITION_OF_GAME = "Find the greatest common divisor of given numbers.";
 
     private static String getConditionOfGame() {
         return CONDITION_OF_GAME;
     }
 
-    public static void startGame(final int numbersOfGame) {
+    public static void startGame(String username) {
         List<Game> games = new ArrayList<>();
         String condition = getConditionOfGame();
-        for (int i = 0; i < numbersOfGame; i++) {
+        for (int i = 0; i < Engine.NUMBER_OF_GAMES; i++) {
             games.add(getQuestion());
         }
-        Engine.startGame(games, condition);
+        Engine.startGame(games, condition, username);
     }
 
     private static int findGCD(int num1, int num2) {
@@ -36,9 +35,8 @@ public class GCD {
     }
 
     private static Game getQuestion() {
-        Random random = new Random();
-        int questionNumber1 = random.nextInt(MAX_QUESTIONS_NUMBER) + 1;
-        int questionNumber2 = random.nextInt(MAX_QUESTIONS_NUMBER) + 1;
+        int questionNumber1 = Utils.generateRandom(1, Utils.MAX_QUESTIONS_NUMBER);
+        int questionNumber2 = Utils.generateRandom(1, Utils.MAX_QUESTIONS_NUMBER);
         String answer = String.valueOf(findGCD(questionNumber1, questionNumber2));
         String question = questionNumber1 + " " + questionNumber2;
         return new Game(question, answer);

@@ -10,35 +10,40 @@ import java.util.Scanner;
 
 public class App {
 
-    private static final int NUMBER_OF_GAMES = 3;
+    private static final int NUMBER_OF_PRIME_GAME     = 6;
+    private static final int NUMBER_OF_PROGRESS_GAME  = 5;
+    private static final int NUMBER_OF_GCD_GAME       = 4;
+    private static final int NUMBER_OF_CALC_GAME      = 3;
+    private static final int NUMBER_OF_GREET_GAME     = 2;
+    private static final int NUMBER_OF_LOGIN          = 1;
 
-    private static void startGame(int numberOfGame) {
-
-        final int numberOfProgressGame  = 5;
-        final int numberOfGCDGame       = 4;
-        final int numberOfCalcGame      = 3;
-        final int numberOfGreetGame     = 2;
+    private static void startGame(int numberOfGame) throws Exception {
 
         switch (numberOfGame) {
-            case numberOfGreetGame:
-                Greet.startGame(NUMBER_OF_GAMES);
+            case NUMBER_OF_GREET_GAME:
+                Greet.startGame(Cli.logIn());
                 break;
-            case numberOfCalcGame:
-                Calc.startGame(NUMBER_OF_GAMES);
+            case NUMBER_OF_CALC_GAME:
+                Calc.startGame(Cli.logIn());
                 break;
-            case numberOfGCDGame:
-                GCD.startGame(NUMBER_OF_GAMES);
+            case NUMBER_OF_GCD_GAME:
+                GCD.startGame(Cli.logIn());
                 break;
-            case numberOfProgressGame:
-                Progression.startGame(NUMBER_OF_GAMES);
+            case NUMBER_OF_PROGRESS_GAME:
+                Progression.startGame(Cli.logIn());
+                break;
+            case NUMBER_OF_PRIME_GAME:
+                Prime.startGame(Cli.logIn());
+                break;
+            case NUMBER_OF_LOGIN:
+                Cli.logIn();
                 break;
             default:
-                Prime.startGame(NUMBER_OF_GAMES);
-                break;
+                throw new Exception("Неизвестный номер игры");
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
@@ -50,9 +55,7 @@ public class App {
         System.out.print("Your choice: ");
         Scanner sc = new Scanner(System.in);
         int usersChoice = sc.nextInt();
-        if (usersChoice == 1) {
-            Cli.logIn();
-        } else if (usersChoice > 1) {
+        if (usersChoice >= 1) {
             startGame(usersChoice);
         }
 
