@@ -3,7 +3,7 @@ package hexlet.code;
 import hexlet.code.games.GCD;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Progression;
-import hexlet.code.games.Greet;
+import hexlet.code.games.Even;
 import hexlet.code.games.Prime;
 
 import java.util.Scanner;
@@ -14,26 +14,26 @@ public class App {
     private static final int NUMBER_OF_PROGRESS_GAME  = 5;
     private static final int NUMBER_OF_GCD_GAME       = 4;
     private static final int NUMBER_OF_CALC_GAME      = 3;
-    private static final int NUMBER_OF_GREET_GAME     = 2;
+    private static final int NUMBER_OF_EVEN_GAME      = 2;
     private static final int NUMBER_OF_LOGIN          = 1;
 
     private static void startGame(int numberOfGame) throws Exception {
 
         switch (numberOfGame) {
-            case NUMBER_OF_GREET_GAME:
-                Greet.startGame(Cli.logIn());
+            case NUMBER_OF_EVEN_GAME:
+                Even.startGame();
                 break;
             case NUMBER_OF_CALC_GAME:
-                Calc.startGame(Cli.logIn());
+                Calc.startGame();
                 break;
             case NUMBER_OF_GCD_GAME:
-                GCD.startGame(Cli.logIn());
+                GCD.startGame();
                 break;
             case NUMBER_OF_PROGRESS_GAME:
-                Progression.startGame(Cli.logIn());
+                Progression.startGame();
                 break;
             case NUMBER_OF_PRIME_GAME:
-                Prime.startGame(Cli.logIn());
+                Prime.startGame();
                 break;
             case NUMBER_OF_LOGIN:
                 Cli.logIn();

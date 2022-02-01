@@ -10,17 +10,18 @@ public class GCD {
 
     private static final String CONDITION_OF_GAME = "Find the greatest common divisor of given numbers.";
 
-    private static String getConditionOfGame() {
-        return CONDITION_OF_GAME;
-    }
-
-    public static void startGame(String username) {
+    public static void startGame() {
         List<Game> games = new ArrayList<>();
-        String condition = getConditionOfGame();
         for (int i = 0; i < Engine.NUMBER_OF_GAMES; i++) {
-            games.add(getQuestion());
+            int questionNumber1 = Utils.generateRandom(1, Utils.MAX_QUESTIONS_NUMBER);
+            int questionNumber2 = Utils.generateRandom(1, Utils.MAX_QUESTIONS_NUMBER);
+            // получение ответа и вопроса в одну строку,
+            // поэтому не стал выносить в отдельные функции
+            String answer = String.valueOf(findGCD(questionNumber1, questionNumber2));
+            String question = questionNumber1 + " " + questionNumber2;
+            games.add(new Game(question, answer));
         }
-        Engine.startGame(games, condition, username);
+        Engine.startGame(games, CONDITION_OF_GAME);
     }
 
     private static int findGCD(int num1, int num2) {
@@ -32,14 +33,6 @@ public class GCD {
             }
         }
         return gcd;
-    }
-
-    private static Game getQuestion() {
-        int questionNumber1 = Utils.generateRandom(1, Utils.MAX_QUESTIONS_NUMBER);
-        int questionNumber2 = Utils.generateRandom(1, Utils.MAX_QUESTIONS_NUMBER);
-        String answer = String.valueOf(findGCD(questionNumber1, questionNumber2));
-        String question = questionNumber1 + " " + questionNumber2;
-        return new Game(question, answer);
     }
 
 }
